@@ -33,6 +33,7 @@ const Card = ({ href, children }) => (
         margin: 0;
         font-size: 1.25rem;
         line-height: 1.5;
+        word-break: break-all;
       }
     `}</style>
   </a>

@@ -76,19 +76,23 @@ export default () => (
           </p>
         </Card>
 
-        <Card href='/'>
+        <Card href='https://www.npmjs.com/package/extensions.macro'>
           <h3>JavaScript Extensions 🧩</h3>
           <p>A Babel macro inspired by Kotlin's extensions.</p>
         </Card>
 
-        <Card href='/'>
+        <Card href='https://github.com/fkrasnowski/anyall.macro'>
           <h3>anyall.macro 🐸</h3>
           <p>A macro making multiple values comparison easy.</p>
         </Card>
 
-        <Card href='/'>
+        {/* <Card href='/'>
           <h3>Firepit 🔥</h3>
           <p>Dart package for fetching Firebase data offline.</p>
+        </Card> */}
+        <Card href='https://github.com/fkrasnowski/useVisibilityPercentage'>
+          <h3>use-visbility-percentage</h3>
+          <p>A react hook to measure visibility of element on screen</p>
         </Card>
       </div>
 

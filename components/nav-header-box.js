@@ -1,10 +1,31 @@
 import useVisbilityPercentage from '../modules/visibility-percentage';
 import Nav, { navRef } from './navbar';
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useEffect } from 'react';
 import anime from 'animejs';
 import { useState } from '@hookstate/core';
 import { menuRevealState } from '../state';
 import theme from '../theme';
+
+const randomValue = (arr) => {
+  return arr[Math.floor(Math.random() * arr.length)];
+};
+
+const randomColor = () =>
+  randomValue([
+    '#FFC0CB',
+    '#f7aef8',
+    '#a09fe8',
+    '#b8e0d2',
+    '#72ddf7',
+    '#edf67d',
+    '#7dd181',
+  ]);
+
+let headerColor = '#FFC0CB';
+
+setInterval(() => {
+  headerColor = randomColor();
+}, 3000);
 
 export const HeaderBox = ({ children }) => {
   const [ref, percentage] = useVisbilityPercentage();
@@ -17,7 +38,7 @@ export const HeaderBox = ({ children }) => {
         duration: 1000,
         targets: ref.current,
         easing: 'easeInQuart',
-        backgroundColor: [theme.colors.primary, theme.colors.muted],
+        backgroundColor: [headerColor, theme.colors.muted],
         color: [theme.colors.secondary, 'rgba(0, 0, 0, 0)'],
         borderBottomLeftRadius: ['50% 20%', '0% 0%'],
         borderBottomRightRadius: ['50% 50%', '0% 0%'],
