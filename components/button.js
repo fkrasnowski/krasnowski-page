@@ -23,10 +23,10 @@ const Button = ({ children, scrollTo, plus, minus }) => {
             margin 0.5rem;
             border-radius: 10px;
             border: 0px solid grey;
-            min-width: 80px;
-            /* height: 36px;  */          
+            min-width: 80px;        
             text-align: center;
-            transition: all 0.4s
+            transition: all 0.4s;
+            cursor: pointer;
         }
 
         button:hover {

@@ -1,6 +1,6 @@
 import theme from '../theme';
-const Card = ({ href, children }) => (
-  <a href={href} className='card'>
+const Card = ({ href, newTab = true, children }) => (
+  <a href={href} target={newTab ? '_blank' : '_self'} className='card'>
     {children}
     <style jsx>{`
       .card {
@@ -33,7 +33,7 @@ const Card = ({ href, children }) => (
         margin: 0;
         font-size: 1.25rem;
         line-height: 1.5;
-        word-break: break-all;
+        word-break: normal;
       }
     `}</style>
   </a>

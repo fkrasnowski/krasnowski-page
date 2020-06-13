@@ -19,11 +19,10 @@ export default () => (
       <title>Krasnowski</title>
       <link rel='icon' href='/kr.ico' />
       <link
-        href='https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap'
+        href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap'
         rel='stylesheet'
       ></link>
     </Head>
-    <div id='top' />
     <RevealMenu>
       <Padding h='40px' />
       <Button scrollTo={projectsRef} minus={80}>
@@ -69,7 +68,7 @@ export default () => (
       <h1 ref={projectsRef}>Some Projects</h1>
 
       <div className='grid'>
-        <Card href='/'>
+        <Card href='https://github.com/fkrasnowski/styled-proxy'>
           <h3>Styled Proxy 💄</h3>
           <p>
             An exprimental css-in-js library to style components using Proxy.
@@ -110,10 +109,22 @@ export default () => (
       <h1 ref={contactRef}>Contact me</h1>
       <div className='grid'>
         <div>
-          <RoundButton img={<LinkedInIcon />} />
-          <RoundButton img={<GitHubIcon />} />
+          <RoundButton
+            img={<LinkedInIcon />}
+            href='https://linkedin.com/in/franciszek-krasnowski'
+            label='LinkedIn'
+          />
+          <RoundButton
+            img={<GitHubIcon />}
+            href='https://github.com/fkrasnowski'
+            label='GitHub'
+          />
         </div>
-        <RoundButton img={<MailIcon />} />
+        <RoundButton
+          img={<MailIcon />}
+          label='Mail'
+          href='mailto:krasnowskifranciszek@outlook.com'
+        />
       </div>
     </main>
     <footer>
@@ -222,7 +233,9 @@ export default () => (
       }
 
       .name {
-        font-family: 'Permanent Marker', cursive;
+        /* font-family: 'Permanent Marker', cursive; */
+        /*font-family: 'Playfair Display', serif;*/
+        font-family: 'Roboto Slab', serif;
       }
 
       @media (max-width: 600px) {

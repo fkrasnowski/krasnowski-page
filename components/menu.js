@@ -37,7 +37,7 @@ export const Menu = ({ children }) => {
   return (
     <>
       <div className='menu'>{children}</div>
-      <button onClick={() => revealState.set((b) => !b)}>
+      <button onClick={() => revealState.set((b) => !b)} aria-label='menu'>
         {/* {revealState.get() ? '✖' : '🔲'} */}
         <Hamburger />
       </button>

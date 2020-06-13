@@ -13,9 +13,6 @@ const Card = ({ children, pic }) => {
         <div className='property-image'></div>
       </a>
       <div className='property-description'>{children}</div>
-      <a href='#'>
-        <div className='property-social-icons'></div>
-      </a>
       <style jsx>
         {`
           .property-card {
@@ -37,7 +34,6 @@ const Card = ({ children, pic }) => {
             top: 0px;
             right: 0px;
             transition: ${transition};
-            /* background-image: url('https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg'); */
             background-image: url(${pic});
             background-size: cover;
             background-repeat: no-repeat;
@@ -57,38 +53,14 @@ const Card = ({ children, pic }) => {
             text-align: center;
           }
 
-          /* Social Icons */
-
-          .property-social-icons {
-            width: 1em;
-            height: 1em;
-            background-color: ${theme.colors.background};
-            position: absolute;
-            bottom: 1em;
-            left: 1em;
-            transition: ${transition};
-          }
-
-          /* Property Cards Hover States */
-
           .property-card:hover .property-description {
             transform: translate(-${descriptionW + unit});
-            /*   padding:0px 1rem; */
           }
 
           .property-card:hover .property-image {
-            /*width: ${w + unit};*/
             width: 100%;
           }
 
-          .property-card:hover .property-social-icons {
-            background-color: white;
-          }
-
-          .property-card:hover .property-social-icons:hover {
-            background-color: blue;
-            cursor: pointer;
-          }
 
           @media (max-width: 800px) {
             .property-card {
