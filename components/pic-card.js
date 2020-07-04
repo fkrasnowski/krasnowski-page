@@ -13,6 +13,7 @@ const Card = ({ children, pic }) => {
         <div className='property-image'></div>
       </a>
       <div className='property-description'>{children}</div>
+      <p className='property-info'>Press to reveal</p>
       <style jsx>
         {`
           .property-card {
@@ -52,13 +53,27 @@ const Card = ({ children, pic }) => {
             padding: 0.5em 1em;
             text-align: center;
           }
+          .property-info {
+            color: ${theme.colors.secondary};
+            height: ${h + unit};
+            width: ${descriptionW + unit};
+            position: relative;
+            top: ${h - 4 + unit};
+            transition: ${transition};
+            padding: 0.5em 1em;
+            display: none;
+          }
 
-          .property-card:hover .property-description {
+          .property-card:active  .property-description {
             transform: translate(-${descriptionW + unit});
           }
 
-          .property-card:hover .property-image {
+          .property-card:active .property-image {
             width: 100%;
+          }
+
+          .property-card:active .property-info {
+            opacity: 0
           }
 
 
@@ -66,15 +81,18 @@ const Card = ({ children, pic }) => {
             .property-card {
                 width: 90%;
             }
-            .property-card:hover .property-image {
+            .property-card:active .property-image {
                width: 115%;
             }
 
-            .property-card:hover .property-description {
+            .property-card:active .property-description {
                 transform: translate(-105%);
             }
             .property-description {
                 width: 100%;
+            }
+            .property-info {
+              display: inline;
             }
         `}
       </style>
