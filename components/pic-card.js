@@ -1,4 +1,5 @@
 import theme from '../theme';
+import { useState } from '@hookstate/core';
 
 const Card = ({ children, pic }) => {
   const transition = 'all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1)';
@@ -7,16 +8,25 @@ const Card = ({ children, pic }) => {
   const w = 47;
   const imageW = 30;
   const descriptionW = w - imageW;
+  const revealState = useState(false);
+  const setRevealTrue = () => revealState.set(true);
+  const setRevealFalse = () => revealState.set(false);
   return (
-    <div className='property-card'>
+    <div
+      className={revealState.get() ? 'card revealed' : 'card'}
+      onTouchStart={setRevealTrue}
+      onTouchEnd={setRevealFalse}
+      onMouseEnter={setRevealTrue}
+      onMouseLeave={setRevealFalse}
+    >
       <a>
-        <div className='property-image'></div>
+        <div className='image'></div>
       </a>
-      <div className='property-description'>{children}</div>
-      <p className='property-info'>Press to reveal</p>
+      <div className='description'>{children}</div>
+      <p className='info'>Press & hold</p>
       <style jsx>
         {`
-          .property-card {
+          .card {
             height: ${h + unit};
             width: ${w + unit};
             display: flex;
@@ -26,7 +36,10 @@ const Card = ({ children, pic }) => {
             border-radius: 10px;
             overflow: hidden;
           }
-          .property-image {
+
+          .revealed { }
+
+          .image {
             height: ${h + unit};
             width: ${imageW + unit};
             padding: 1em 2em;
@@ -42,7 +55,7 @@ const Card = ({ children, pic }) => {
 
           /* Bottom Card Section */
 
-          .property-description {
+          .description {
             background-color: ${theme.colors.primary};
             color: ${theme.colors.secondary};
             height: ${h + unit};
@@ -53,7 +66,7 @@ const Card = ({ children, pic }) => {
             padding: 0.5em 1em;
             text-align: center;
           }
-          .property-info {
+          .info {
             color: ${theme.colors.secondary};
             height: ${h + unit};
             width: ${descriptionW + unit};
@@ -64,36 +77,41 @@ const Card = ({ children, pic }) => {
             display: none;
           }
 
-          .property-card:active  .property-description {
+          .revealed  .description {
             transform: translate(-${descriptionW + unit});
           }
 
-          .property-card:active .property-image {
+          .revealed .image {
             width: 100%;
           }
 
-          .property-card:active .property-info {
+          .revealed .info {
             opacity: 0
           }
 
 
           @media (max-width: 800px) {
-            .property-card {
+            .card {
                 width: 90%;
             }
-            .property-card:active .property-image {
+            
+            .revealed .image {
                width: 115%;
             }
 
-            .property-card:active .property-description {
+            .revealed .description {
                 transform: translate(-105%);
             }
-            .property-description {
+      
+            .description {
                 width: 100%;
             }
-            .property-info {
-              display: inline;
+            @media (hover: none) {
+              .info {
+                display: inline
+              }
             }
+            
         `}
       </style>
     </div>
