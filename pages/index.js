@@ -85,14 +85,19 @@ export default () => (
           <p>A macro making multiple values comparison easy.</p>
         </Card>
 
+        <Card href='https://www.npmjs.com/package/extensions.macro'>
+          <h3>Stateverse 👽</h3>
+          <p>A state manager focused on asynchronous changes.</p>
+        </Card>
+
         {/* <Card href='/'>
           <h3>Firepit 🔥</h3>
           <p>Dart package for fetching Firebase data offline.</p>
         </Card> */}
-        <Card href='https://github.com/fkrasnowski/useVisibilityPercentage'>
+        {/* <Card href='https://github.com/fkrasnowski/useVisibilityPercentage'>
           <h3>use-visbility-percentage</h3>
           <p>A react hook to measure visibility of element on screen</p>
-        </Card>
+        </Card> */}
       </div>
 
       <Padding h='2rem' />
